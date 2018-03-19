@@ -1,0 +1,24 @@
+.jinput {
+	position: relative;
+}
+.jinput__icon {
+	position: absolute;
+	left: 0;
+	padding: 6px 12px;
+}
+.jinput__field {
+	border: 1px solid black;
+	padding: 5px 10px 5px 35px;
+	border-radius: 3px;
+	width: 100%;
+}
+
+/* MOD */
+.jinput__icon_hidden {
+	position: static;
+	display: none;
+	visibility: hidden;
+}
+.jinput__field_without-icon {
+	padding-left: 10px;
+}
