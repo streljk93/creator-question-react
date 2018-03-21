@@ -87,6 +87,10 @@ class FormAddQuestion extends React.Component {
 		alert(JSON.stringify(data));
 	}
 
+	handleReset() {
+		this.setState({});
+	}
+
 	render() {
 		let message = null;
 		if (this.state.message.visible) {
@@ -128,7 +132,7 @@ class FormAddQuestion extends React.Component {
 
 								<Form.Group style={{paddingTop: '15px'}}>
 									<Form.Field width="8">
-										<Button basic style={{width: '100%'}} animated="vertical">
+										<Button basic style={{width: '100%'}} animated="vertical" onClick={this.handleReset.bind(this)}>
 											<Button.Content visible>RESET</Button.Content>
 											<Button.Content hidden>
 												<Icon name="ban" />

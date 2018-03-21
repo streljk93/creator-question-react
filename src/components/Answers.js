@@ -16,7 +16,6 @@ export default class Answers extends React.Component {
 						<Input
 							label={{ icon: 'asterisk' }}
 					    labelPosition='right corner'
-					    placeholder='Search...'
 							type="text"
 							placeholder={'Answer ' + (index + 1)}
 							onChange={(e) => {
