@@ -1,46 +1,43 @@
 import React from 'react';
+import { Dropdown, Icon, Menu } from 'semantic-ui-react'
 
 class Header extends React.Component {
 	render() {
 		return (
-			<nav className="navbar navbar-expand-lg navbar-light bg-light">
-				<a className="navbar-brand" href="#">
-			    <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" className="d-inline-block align-top" alt="" />
-			    Bootstrap
-			  </a>
-			  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			    <span className="navbar-toggler-icon"></span>
-			  </button>
+	    <Menu attached='top' compact style={{
+	    	borderLeftWidth: '0',
+	    	borderRightWidth: '0',
+	    	borderTopWidth: '0',
+	    }}>
+	    	<div className="container">
+		      <Dropdown item icon='bars' simple>
+		        <Dropdown.Menu>
+		          <Dropdown.Item>All question</Dropdown.Item>
+		          <Dropdown.Item>Create question</Dropdown.Item>
+		          <Dropdown.Item>
+		            <Icon name='dropdown' />
+		            <span className='text'>Template question</span>
+		            <Dropdown.Menu>
+		              <Dropdown.Item>Template 1</Dropdown.Item>
+		              <Dropdown.Item>Template 2</Dropdown.Item>
+		            </Dropdown.Menu>
+		          </Dropdown.Item>
+		          <Dropdown.Divider />
+		          <Dropdown.Item>Share</Dropdown.Item>
+		        </Dropdown.Menu>
+		      </Dropdown>
 
-			  <div className="collapse navbar-collapse" id="navbarSupportedContent">
-			    <ul className="navbar-nav mr-auto">
-			      <li className="nav-item active">
-			        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-			      </li>
-			      <li className="nav-item">
-			        <a className="nav-link" href="#">Link</a>
-			      </li>
-			      <li className="nav-item dropdown">
-			        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			          Dropdown
-			        </a>
-			        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-			          <a className="dropdown-item" href="#">Action</a>
-			          <a className="dropdown-item" href="#">Another action</a>
-			          <div className="dropdown-divider"></div>
-			          <a className="dropdown-item" href="#">Something else here</a>
-			        </div>
-			      </li>
-			      <li className="nav-item">
-			        <a className="nav-link disabled" href="#">Disabled</a>
-			      </li>
-			    </ul>
-			    <form className="form-inline my-2 my-lg-0">
-			      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-			      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			    </form>
-			  </div>
-			</nav>
+		      <Menu.Menu position='right'>
+		        <div className='ui right aligned category search item'>
+		          <div className='ui transparent icon input'>
+		            <input className='prompt' type='text' placeholder='Search questions...' />
+		            <i className='search link icon' />
+		          </div>
+		          <div className='results' />
+		        </div>
+		      </Menu.Menu>
+		    </div>
+	    </Menu>
 		);
 	}
 }
