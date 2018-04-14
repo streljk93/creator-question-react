@@ -10,7 +10,8 @@ import {
 	Icon,
 	Form,
 	Label,
-	Message
+	Message,
+	Grid
 } from 'semantic-ui-react';
 
 class FormAddQuestion extends React.Component {
@@ -30,7 +31,8 @@ class FormAddQuestion extends React.Component {
 	};
 
 	componentDidUpdate(prevProps, prevState) {
-		this.cropper.replace(this.state.question.image);
+		if (this.dt === parseInt(new Date().getTime() / 1000, 10))
+			this.cropper.replace(this.state.question.image);
 	}
 
 	componentDidMount() {
@@ -48,7 +50,7 @@ class FormAddQuestion extends React.Component {
 			background: true,
 			autoCrop: true,
 			cropBoxMovable: true,
-			aspectRatio: 4/3,
+			aspectRatio: 1/1,
 		});
 	}
 
@@ -69,6 +71,7 @@ class FormAddQuestion extends React.Component {
 
 	handleSetQuestionImage(imagePayload) {
 		this.setState((state) => {
+			this.dt = parseInt(new Date().getTime() / 1000, 10);
 			state.question.image = imagePayload;
 			return state;
 		});
@@ -113,9 +116,9 @@ class FormAddQuestion extends React.Component {
 
 		return (
 			<Segment attached="bottom">
-				<div className="container">
-					<div className="row">
-						<div className="col-md-5">
+				<Grid container doubling columns={2}>
+					<Grid.Row>
+						<Grid.Column width={7}>
 							<Form>
 								<Header as="h1" style={{textTransform: 'uppercase'}}>Create question</Header>
 								{message}
@@ -149,17 +152,17 @@ class FormAddQuestion extends React.Component {
 									</Form.Field>
 								</Form.Group>
 							</Form>
-						</div>
+						</Grid.Column>
 
-						<div className="col-md-7">
+						<Grid.Column width={9}>
 							<Header as="h1" style={{textTransform: 'uppercase'}}>crop image</Header>
 							<div>
 								<img ref={(element) => this.imageCropElement = element} src="" style={{width: '100%'}} alt="" />
 							</div>
-						</div>
+						</Grid.Column>
 
-					</div>
-				</div>
+					</Grid.Row>
+				</Grid>
 			</Segment>
 		);
 	}

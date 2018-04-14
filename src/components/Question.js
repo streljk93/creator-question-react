@@ -43,7 +43,14 @@ export default class Question extends React.Component {
 					<Button basic style={{height: '38px', width: '100%'}} icon labelPosition="left">
 						<input
 							type="file"
-							style={{position: 'absolute', left: '0', top: '0', height: '100%', opacity: '0'}}
+							style={{
+								position: 'absolute',
+								left: '0',
+								top: '0',
+								height: '100%',
+								opacity: '0',
+								zIndex: '2',
+							}}
 							onChange={this.handleSetQuestion}
 						/>
 						<Icon name="upload" />
